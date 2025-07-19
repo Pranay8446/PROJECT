@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate} from 'react-router-dom'
+import axios from "axios"
+import {UserDataContext} from '../context/UserContext'
 
 const Login = () => {
 
@@ -7,15 +9,28 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [userData, setUserData] = useState({})
   
-  const sumbmitHandler = (e) =>{
+  const navigate = useNavigate()
+
+  const {user , setUser } = React.useContext(UserDataContext)
+
+  const sumbmitHandler = async (e) =>{
     e.preventDefault()
-    setData({
-      email,
-      password
-    })    
+      
+
+    const responce = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, {email, password})
+
+    if(responce.status === 200 ){
+      const data = responce.data
+      setUser(data.user)
+      localStorage.setItem("token", data.token)
+      navigate("/")
+    }
+
     setEmail("")
     setPassword("")
   }
+
+  
   
   return (
     <div>
@@ -23,7 +38,7 @@ const Login = () => {
         <h1 className='p-5'>Logo</h1>
         <div className=" p-10 w-full ">
 
-          <form action="" 
+          <form 
           onSubmit={(e)=>{
             sumbmitHandler(e)
           }}
