@@ -4,6 +4,10 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import { UserDataContext } from './context/UserContext'
+import IronDoor from './pages/IronDoor'
+import IronStair from './pages/IronStair'
+import IronWindow from './pages/IronWindow'
+import IronShade from './pages/IronShade'
 
 const App = () => {  
   return (
@@ -12,6 +16,10 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/iron-doors' element={<IronDoor />} />
+        <Route path='/iron-stairs' element={<IronStair />} />
+        <Route path='/iron-windows' element={<IronWindow />} />
+        <Route path='/iron-shades' element={<IronShade />} />
       </Routes>
     </div>
   )

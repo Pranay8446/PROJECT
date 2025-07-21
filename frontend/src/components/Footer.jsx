@@ -8,10 +8,10 @@ const Footer = () => {
         <div>
           <h1 className='text-2xl mb-2 font-semibold'>Our Services</h1>
           <ul>
-            <Link to="/iron-door" className='text-lg block mb-1'>Iron Doors</Link>
-            <Link to="/iron-window" className='text-lg block mb-1'>Iron Windows</Link>
-            <Link to="/iron-stair" className='text-lg block mb-1'>Iron Stairs</Link>
-            <Link to="/iron-shade" className='text-lg block mb-1'>Iron Shades</Link>
+            <Link to="/iron-doors" className='text-lg block mb-1'>Iron Doors</Link>
+            <Link to="/iron-windows" className='text-lg block mb-1'>Iron Windows</Link>
+            <Link to="/iron-stairs" className='text-lg block mb-1'>Iron Stairs</Link>
+            <Link to="/iron-shades" className='text-lg block mb-1'>Iron Shades</Link>
           </ul>
         </div>
         <div>
