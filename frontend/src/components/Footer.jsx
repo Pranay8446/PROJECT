@@ -23,6 +23,7 @@ const Footer = () => {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            className='w-full'
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           <p className='mt-3'>

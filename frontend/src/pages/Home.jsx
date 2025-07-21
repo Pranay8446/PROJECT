@@ -11,13 +11,13 @@ import ProductList from '../components/ProductList'
 const Home = () => {
   return (
     <div>
-        <Header/>
-        <FrontContainer />
-        <Footer/> 
+        {/* <Header/>
+        <FrontContainer /> */}
         {/* <Login/>
         <Register /> */}
         <ProductUpload/>
         <ProductList />
+        <Footer/> 
     </div>
   )
 }
