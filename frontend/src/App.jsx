@@ -8,6 +8,7 @@ import IronDoor from './pages/IronDoor'
 import IronStair from './pages/IronStair'
 import IronWindow from './pages/IronWindow'
 import IronShade from './pages/IronShade'
+import EnquiryPage from './pages/EnquiryPage'
 
 const App = () => {  
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/iron-stairs' element={<IronStair />} />
         <Route path='/iron-windows' element={<IronWindow />} />
         <Route path='/iron-shades' element={<IronShade />} />
+        <Route path='/service-enquiry' element={<EnquiryPage />} />
       </Routes>
     </div>
   )
