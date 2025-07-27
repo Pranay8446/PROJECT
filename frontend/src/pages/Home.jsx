@@ -7,6 +7,9 @@ import Register from './Register'
 import Login from './Login'
 import ProductUpload from '../components/ProductUpload'
 import ProductList from '../components/ProductList'
+import Container from './Container'
+
+
 
 const Home = () => {
   return (
@@ -17,7 +20,8 @@ const Home = () => {
         <Register /> */}
         <ProductUpload/>
         <ProductList />
-        <Footer/> 
+        {/* <Footer/>  */}
+        <Container
     </div>
   )
 }

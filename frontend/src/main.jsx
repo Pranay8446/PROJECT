@@ -5,15 +5,20 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import UserContext from './context/UserContext.jsx'
 import { ProductProvider } from './context/ProductContext.jsx'
+import { ContainerProvider } from './context/ContainerContext'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ProductProvider>
-      <UserContext>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </UserContext>
-    </ProductProvider>
+    <ContainerProvider>
+      <ProductProvider>
+        <UserContext>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </UserContext>
+      </ProductProvider>
+    </ContainerProvider>
   </StrictMode>,
-)
+);
+
