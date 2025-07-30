@@ -9,6 +9,7 @@ import IronStair from './pages/IronStair'
 import IronWindow from './pages/IronWindow'
 import IronShade from './pages/IronShade'
 import EnquiryPage from './pages/EnquiryPage'
+import ProductUpload from './components/ProductUpload'
 
 const App = () => {  
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/iron-windows' element={<IronWindow />} />
         <Route path='/iron-shades' element={<IronShade />} />
         <Route path='/service-enquiry' element={<EnquiryPage />} />
+        <Route path='/upload-product' element={<ProductUpload />} />
       </Routes>
     </div>
   )

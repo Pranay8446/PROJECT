@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const containerModel = require('../models/front.container');
 const multer = require('multer');
+const { isAuthenticated, isAdmin } = require('../middlewares/authMiddleware');
 
 // Use memory storage for multer
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // POST: Upload product
-router.post('/add', upload.single('image'), async (req, res) => {
+router.post('/add', upload.single('image'), isAuthenticated , isAdmin , async (req, res) => {
   try {
     const { name } = req.body;
 
@@ -23,10 +24,11 @@ router.post('/add', upload.single('image'), async (req, res) => {
 
     const newContainer = new containerModel({
       name,
-      image
+      image,
+      link: req.body.link 
     });
 
-    await newProduct.save();
+    await newContainer.save();
 
     res.status(201).json({ message: 'Conrainer added successfully' });
   } catch (error) {
@@ -43,6 +45,7 @@ router.get('/', async (req, res) => {
     const formatted = container.map((p) => ({
       _id: p._id,
       name: p.name,
+      link: p.link,
       image: p.image?.data
         ? `data:${p.image.contentType};base64,${p.image.data.toString('base64')}`
         : null,

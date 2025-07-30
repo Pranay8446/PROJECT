@@ -16,31 +16,47 @@ const Register = () => {
 
     const {user , setUser } = React.useContext(UserDataContext)
 
-    const sumbmitHandler = async (e) =>{
-      e.preventDefault()
-      const newUser = ({ 
-        fullname: {
-          firstname:firstName,
-          lastname:lastName
-        },
-        email,
-        password
-      })    
+    const sumbmitHandler = async (e) => {
+  e.preventDefault();
 
-      const responce = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser)
-      
-      if(responce.status === 201 ){
-        const data = responce.data
-        setUser(data.user)
-        localStorage.setItem("token", data.token)
-        navigate("/")
-      }
+  const newUser = {
+    fullname: {
+      firstname: firstName.trim(),
+      lastname: lastName.trim(),
+    },
+    email: email.trim(),
+    password: password,
+  };
 
-      setEmail("")
-      setFirstName("")
-      setLastName("")
-      setPassword("")
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_BASE_URL}/users/register`,
+      newUser
+    );
+
+    if (response.status === 201) {
+      const data = response.data;
+      setUser(data.user);
+      localStorage.setItem("token", data.token);
+      navigate("/");
     }
+
+    // Clear form
+    setEmail("");
+    setFirstName("");
+    setLastName("");
+    setPassword("");
+
+  } catch (error) {
+    console.error("Registration Error:", error.response?.data || error.message);
+
+    alert(
+      error.response?.data?.message ||
+      "Registration failed. Please check your input."
+    );
+  }
+};
+
 
   return (
     <div>

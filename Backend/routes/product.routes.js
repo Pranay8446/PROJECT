@@ -2,13 +2,18 @@ const express = require('express');
 const router = express.Router();
 const productModel = require('../models/product.model');
 const multer = require('multer');
+const { isAuthenticated, isAdmin } = require('../middlewares/authMiddleware');
+
 
 // Use memory storage for multer
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+console.log("upload.single:", typeof upload.single); // should be 'function'
+console.log("isAuthenticated:", typeof isAuthenticated); // should be 'function'
+console.log("isAdmin:", typeof isAdmin); 
 // POST: Upload product
-router.post('/add', upload.single('image'), async (req, res) => {
+router.post('/add',  isAuthenticated, isAdmin ,upload.single('image'), async (req, res) => {
   try {
     const { name, category } = req.body;
 

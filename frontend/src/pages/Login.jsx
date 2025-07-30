@@ -17,17 +17,23 @@ const Login = () => {
     e.preventDefault()
       
 
-    const responce = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, {email, password})
+    const response = await axios.post(
+  `${import.meta.env.VITE_BASE_URL}/users/login`,
+  { email, password },
+  { withCredentials: true } // 🔥 Required to send cookies
+);
 
-    if(responce.status === 200 ){
-      const data = responce.data
-      setUser(data.user)
-      localStorage.setItem("token", data.token)
-      navigate("/")
+
+    if (response.status === 200) {
+      const data = response.data;
+      setUser(data.user);
+      localStorage.setItem("token", data.token);
+      navigate("/");
     }
 
-    setEmail("")
-    setPassword("")
+    setEmail("");
+    setPassword("");
+
   }
 
   

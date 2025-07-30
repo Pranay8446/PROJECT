@@ -11,9 +11,15 @@ const containerRoutes = require("./routes/container.routes")
 
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', // your frontend URL
+  credentials: true                // allow cookies
+}));
+
 app.use(bodyParser.json());
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));

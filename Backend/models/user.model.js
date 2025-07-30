@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
+
 const userSchema = mongoose.Schema({
     fullname: {
         firstname: {
@@ -25,7 +26,13 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         select: false,
-    }
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user',
+        required: true,
+    },
 })
 
 userSchema.methods.generateAuthToken = function () {
@@ -43,3 +50,4 @@ userSchema.statics.hashPassword = async (password) =>{
 
 
 module.exports = mongoose.model("user", userSchema)
+

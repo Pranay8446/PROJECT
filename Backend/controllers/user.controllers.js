@@ -52,8 +52,16 @@ module.exports.loginUser = async (req, res, next)=>{
     if(!isMatch){
         return res.status(401).json({message:"Invalid email or password"})
     }
-
+    console.log("Hello");
     const token = user.generateAuthToken()
+    
+    console.log("Token generated:", token);
+
+    res.cookie('token', token, {
+        httpOnly: true,
+        sameSite: 'Lax'
+    });
 
     res.status(200).json({ token, user });
+
 }

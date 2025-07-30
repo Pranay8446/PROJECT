@@ -9,6 +9,10 @@ const frontContainerSchema =  mongoose.Schema({
         data: Buffer,
         contentType: String,
     },
+    link: {
+        type: String,
+        required: true
+    }
 })
 
 

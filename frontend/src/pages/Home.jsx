@@ -14,14 +14,15 @@ import Container from './Container'
 const Home = () => {
   return (
     <div>
-        {/* <Header/>
-        <FrontContainer /> */}
-        {/* <Login/>
-        <Register /> */}
+        {/* <Nav /> */}
+        {/* <Header/> */}
+        {/* <FrontContainer /> */}
+        <Login/>
+        {/* <Register /> */}
         <ProductUpload/>
-        <ProductList />
+        {/* <ProductList /> */}
         {/* <Footer/>  */}
-        <Container
+        {/* <Container /> */}
     </div>
   )
 }

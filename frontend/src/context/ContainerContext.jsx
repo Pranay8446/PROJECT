@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 const FrontContainer = createContext();
@@ -18,7 +18,7 @@ export const ContainerProvider = ({ children }) => {
 
   const uploadContainer = async (formData) => {
     try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/continer/add`, formData, {
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/containers/add`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       fetchContainer(); // Corrected this from fetchProducts()

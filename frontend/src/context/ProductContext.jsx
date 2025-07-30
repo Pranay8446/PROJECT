@@ -16,15 +16,34 @@ export const ProductProvider = ({ children }) => {
   };
 
   const uploadProduct = async (formData) => {
-    try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/products/add`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      fetchProducts();
+  try {
+    const token = localStorage.getItem('token');
+
+const response = await axios.post(
+  `${import.meta.env.VITE_BASE_URL}/products/add`,
+  formData,
+  {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+);
+
+    
+
+    fetchProducts(); 
     } catch (error) {
-      console.error("Failed to upload product", error);
+      if (error.response?.status === 403) {
+        window.location.href = '/login';
+      } else {
+        alert("Upload failed");
+        window.location.href = '/login';
+        console.error(error);
+      }
     }
   };
+
 
   useEffect(() => {
     fetchProducts();
