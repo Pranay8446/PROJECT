@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.use(cors({
   origin: 'http://192.168.208.6:5173', // your frontend URL
-  credentials: true                // allow cookies
+  credentials: true                //cd allow cookies
 }));
 
 app.use(bodyParser.json());
