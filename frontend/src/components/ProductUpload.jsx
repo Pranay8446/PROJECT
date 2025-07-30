@@ -27,7 +27,7 @@ const ProductUpload = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border p-4 mb-6 rounded">
+    <form onSubmit={handleSubmit} className="bg-zinc-900 text-white h-screen p-6 pt-10 ">
       <h2 className="text-xl font-semibold mb-2">Upload Product</h2>
 
       <input 
@@ -35,13 +35,13 @@ const ProductUpload = () => {
         placeholder="Name" 
         value={name}
         onChange={(e) => setName(e.target.value)} 
-        className="mb-2 p-2 block w-full border rounded" 
+        className="mb-4 p-2 block w-full border-2 border-zinc-800 rounded-lg outline-none" 
       />
 
       <select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-        className="mb-2 p-2 block w-full border rounded"
+        className="mb-4 p-2 block w-full border-2 border-zinc-800 rounded-lg outline-none text-white bg-zinc-900"
       >
         <option value="">Select Category</option>
         <option value="iron-door">Iron Door</option>
@@ -54,7 +54,7 @@ const ProductUpload = () => {
         type="file"
         accept="image/*"
         onChange={(e) => setImageFile(e.target.files[0])}
-        className="mb-2 block"
+        className="mb-4 block"
       />
 
       <button 

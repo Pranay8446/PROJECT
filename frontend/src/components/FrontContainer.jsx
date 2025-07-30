@@ -11,7 +11,7 @@ const FrontContainer = () => {
                     return (
                         <Link to={container.link} key={key}
                         style={{ backgroundImage: `url(${container.image})` }}
-                        className="bg-center bg-cover h-50 w-full"  >
+                        className="bg-center bg-cover bg-black text-white h-50 w-full"  >
                             <div className="h- w-full">
                                 <h2>{container.name}</h2>
                             </div>

@@ -8,6 +8,7 @@ export const ContainerProvider = ({ children }) => {
   const [container, setContainer] = useState([]);
 
   const fetchContainer = async () => {
+    
     try {
       const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/containers`);
       setContainer(res.data);
@@ -17,15 +18,34 @@ export const ContainerProvider = ({ children }) => {
   };
 
   const uploadContainer = async (formData) => {
-    try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/containers/add`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      fetchContainer(); // Corrected this from fetchProducts()
+  try {
+    const token = localStorage.getItem('token');
+
+const response = await axios.post(
+  `${import.meta.env.VITE_BASE_URL}/containers/add`,
+  formData,
+  {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+);
+
+    
+
+    fetchContainer(); 
     } catch (error) {
-      console.error("Failed to upload product", error);
+      if (error.response?.status === 403) {
+        window.location.href = '/login';
+      } else {
+        console.log(error);
+        alert("Upload failed");
+        // window.location.href = '/login';
+      }
     }
   };
+
 
   useEffect(() => {
     fetchContainer();

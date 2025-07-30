@@ -14,9 +14,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
-
 app.use(cors({
-  origin: 'http://localhost:5173', // your frontend URL
+  origin: 'http://192.168.208.6:5173', // your frontend URL
   credentials: true                // allow cookies
 }));
 

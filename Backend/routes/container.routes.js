@@ -9,7 +9,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // POST: Upload product
-router.post('/add', upload.single('image'), isAuthenticated , isAdmin , async (req, res) => {
+router.post('/add', isAuthenticated , isAdmin , upload.single('image'), async (req, res) => {
   try {
     const { name } = req.body;
 

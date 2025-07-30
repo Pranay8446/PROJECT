@@ -10,6 +10,7 @@ import IronWindow from './pages/IronWindow'
 import IronShade from './pages/IronShade'
 import EnquiryPage from './pages/EnquiryPage'
 import ProductUpload from './components/ProductUpload'
+import Container from './pages/Container'
 
 const App = () => {  
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/iron-shades' element={<IronShade />} />
         <Route path='/service-enquiry' element={<EnquiryPage />} />
         <Route path='/upload-product' element={<ProductUpload />} />
+        <Route path='/upload-container' element={<Container />} />
       </Routes>
     </div>
   )
