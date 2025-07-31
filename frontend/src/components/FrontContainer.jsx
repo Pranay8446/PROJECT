@@ -6,7 +6,7 @@ const FrontContainer = () => {
     const { container } = useContainer()
     return (
         <div>
-            <div className="p-6 min-h-screen w-full flex flex-col gap-6 md:flex flex-row justify-center gap-6 mt-3 w-1/2 flex-wrap mt-10">
+            <div className="p-6 min-h-screen w-full flex  flex-col gap-6 md:flex flex-row justify-center gap-6 mt-3 w-1/2 flex-wrap mt-10">
                 {container.map((container, key) => {
                     return (
                         <Link to={container.link} key={key}
