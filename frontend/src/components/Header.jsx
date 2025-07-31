@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div>
         <Nav />
-        <div className="h-[15rem] w-full bg-gray-400 md:h-[35rem]">
+        <div className="h-[15rem] w-full bg-gray-400 md:h-170 ">
             <img className='object-cover h-full w-full' src={bg} alt="" />
         </div>
     </div>

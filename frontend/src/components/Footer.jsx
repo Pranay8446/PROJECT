@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className='bg-zinc-900 text-white p-6'>
+    <div className='bg-zinc-900 text-white p-6 md:px-25'>
       <div className="flex flex-col gap-6 md:flex-row justify-between">
         <div>
           <h1 className='text-2xl mb-2 font-semibold'>Our Services</h1>
@@ -33,7 +33,7 @@ const Footer = () => {
         <div >
           <h1 className='text-2xl mb-2 font-semibold'>Contact Us</h1>
           <p><strong>Email:</strong> prathameshawaghad@gmail.com</p>
-            <p class="note">(Please do not send service/work enquiry on this mail. Click service enquiry on top of the
+            <p>(Please do not send service/work enquiry on this mail. Click service enquiry on top of the
                 page for enquiries.)</p>
             <p className="font-family: 'Courier New', Courier, monospace;"><strong>Phone:</strong> +919890679833</p>
         </div>
