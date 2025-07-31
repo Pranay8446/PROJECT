@@ -16,7 +16,8 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'http://192.168.208.6:5173'
+  'http://192.168.208.6:5173',
+  'https://newpro84.netlify.app'
 ];
 
 app.use(cors({
