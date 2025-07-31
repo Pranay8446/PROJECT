@@ -14,10 +14,22 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://192.168.208.6:5173'
+];
+
 app.use(cors({
-  origin: 'http://192.168.208.6:5173', // your frontend URL
-  credentials: true                //cd allow cookies
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
+
 
 app.use(bodyParser.json());
 app.use(express.json())
